@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagemMelhorado.View.ListaPedagios"  Title="Lista de Custo de Viagens"
+             BackgroundColor="#2196F3">
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Lista de Pedagios:" FontSize="Large" Padding="15" TextColor="White"/>
+
+
+
+            <ListView x:Name="lst_pedagios" ItemSelected="lst_pedagios_ItemSelected">
+                <ListView.Header>
+                    <Grid RowDefinitions="Auto"
+                              ColumnDefinitions="*, Auto, Auto" Margin="2">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Id" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Localização" />
+                        <Label Grid.Row="0" Grid.Column="2" Text="Valor" />
+                    </Grid>
+                </ListView.Header>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" Clicked="MenuItem_Remover_Clicked" />
+                                <MenuItem Text="Editar" Clicked="MenuItem_Editar_Clicked" />
+                            </ViewCell.ContextActions>
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Localizacao}" />
+                                <Label Grid.Row="0" Grid.Column="2" Text="{Binding Valor, StringFormat='{}{0:c}' }" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+</ContentPage>

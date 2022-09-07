@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagemMelhorado.View.DadosViagemMelhorada" Title="Custo da Viagem"
+             BackgroundColor="#2196F3"
+             Padding="5, 0, 5, 5">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Lista de Pedágios" Clicked="ToolbarItem_Clicked"  />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+
+            <Frame>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Origem:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_origem" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Destino:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_destino" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Custo do Deslocamento" 
+                   Style="{StaticResource Titulo}"/>
+
+            <Frame>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Distâcia:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_distancia" Keyboard="Numeric" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Consumo:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_consumo" Keyboard="Numeric" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Preço:" Style="{StaticResource NomeCampo}"  />
+                        <Entry x:Name="txt_preco_combustivel" Keyboard="Numeric" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Label Text="Custo do Pedágio" 
+                   Style="{StaticResource Titulo}"/>
+
+            <Frame>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Local:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_localizacao" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Valor:" Style="{StaticResource NomeCampo}" />
+                        <Entry x:Name="txt_preco_pedagio" Keyboard="Numeric" Placeholder="R$ " />
+                        <Button Text="Add" Clicked="Button_Add_Clicked" Style="{StaticResource BotoesAcaoInvert}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="CenterAndExpand">
+
+                <Button Text="Calcular Custo Total" 
+                        Clicked="Button_Calcular_Clicked"
+                        Style="{StaticResource BotoesAcao}" />
+
+                <Button Text="Limpar" 
+                        Clicked="Button_Limpar_Clicked" 
+                        Style="{StaticResource BotoesAcao}" />
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
