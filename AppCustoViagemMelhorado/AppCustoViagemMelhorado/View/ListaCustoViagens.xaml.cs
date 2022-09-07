@@ -1,5 +1,7 @@
-﻿using System;
+﻿using AppCustoViagemMelhorado.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,19 +28,7 @@ namespace AppCustoViagemMelhorado.View
 
         //Fará a navegação para a tela de um novo produto
 
-        private void ToolbarItem_Clicked_Novo(object sender, EventArgs e)
-        {
-            try
-            {
-                Navigation.PushAsync(new NovaViagem());
-
-            }
-            catch (Exception ex)
-            {
-                DisplayAlert("Ops", ex.Message, "OK");
-            }
-        }
-
+      
         protected override void OnAppearing()
         {
 
@@ -87,14 +77,6 @@ namespace AppCustoViagemMelhorado.View
         }
 
         //Receberá os novos valores digitados
-        private void lst_custo_viagens_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            // Forma contraída de definir o BindingContext da página EditarProduto como sendo o Produto que foi selecionado na ListView (item da ListView) e em seguida já redicionando na navegação.
-
-            Navigation.PushAsync(new EditarViagem
-            {
-                BindingContext = (Viagem)e.SelectedItem
-            });
-        }
+      
     }
 }

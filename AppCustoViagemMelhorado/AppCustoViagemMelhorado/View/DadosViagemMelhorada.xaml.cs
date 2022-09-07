@@ -40,21 +40,30 @@ namespace AppCustoViagemMelhorado.View
         {
             try
             {
-                PropriedadesApp.ArrayPedagios.Add(new Pedagio()
+                //Preencherá a model do Produto com os dados digitados pelo usuário
+                Pedagio p = new Pedagio
                 {
-                    Id = PropriedadesApp.ArrayPedagios.Count + 1,
+                    Id = pedagio_anexado.Id,
                     Localizacao = txt_localizacao.Text,
-                    Valor = Convert.ToDouble(txt_preco_pedagio.Text.Replace(".", ","))
-                });
+                    Valor = Convert.ToDouble(txt_valor.Text),
 
-                DisplayAlert("Deu Certo!", "Pedágio Adicionado com Sucesso!", "OK");
 
-                txt_localizacao.Text = string.Empty;
-                txt_preco_pedagio.Text = "";
+                };
+
+
+                //Fará a inserção dos dados no banco de dados
+                await App.Database.Insert(p);
+
+
+                //Avisará do sucesso da operação
+                await DisplayAlert("Sucesso!", "Pedagio Cadastrado", "OK");
+
+                //Navegará para a pagina ListaProdutos
+                await Navigation.PushAsync(new ListaPedagios());
             }
             catch (Exception ex)
             {
-                DisplayAlert("Ooops", ex.Message, "OK");
+                await DisplayAlert("Ops", ex.Message, "OK");
             }
         }
 
@@ -74,6 +83,7 @@ namespace AppCustoViagemMelhorado.View
                     txt_preco_combustivel.Text = "";
                     txt_preco_pedagio.Text = "";
 
+                    await App.Database.Clear(p);
                     PropriedadesApp.ArrayPedagios.Clear();
                 }
             }
@@ -87,8 +97,9 @@ namespace AppCustoViagemMelhorado.View
         {
             try
             {
-                double valor_total_pedagios = PropriedadesApp.ArrayPedagios.Sum(item => item.Valor);
+                double soma = lista_produtos.Sum(i => i.Valor);
 
+                
                 double consumo = Convert.ToDouble(txt_consumo.Text);
                 double preco_combustivel = Convert.ToDouble(txt_preco_combustivel.Text.Replace(".", ","));
                 double distancia = Convert.ToDouble(txt_distancia.Text);

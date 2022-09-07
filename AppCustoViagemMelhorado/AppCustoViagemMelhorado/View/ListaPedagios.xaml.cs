@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,6 +22,7 @@ namespace AppCustoViagemMelhorado.View
         public ListaPedagios()
         {
             InitializeComponent();
+         
 
             lst_pedagios.ItemsSource = lista_pedagios;
         }
@@ -47,7 +48,7 @@ namespace AppCustoViagemMelhorado.View
         {
             double soma = lista_pedagios.Sum(i => i.Valor);
 
-            string msg = "O total do pedágio é de: R$ " + soma;
+            string msg = "O total do pedágio é: R$ " + soma;
 
             DisplayAlert("SOMA", msg, "OK");
         }
@@ -70,7 +71,9 @@ namespace AppCustoViagemMelhorado.View
                     {
                         lista_pedagios.Add(item);
                     }
+                    // Após carregar os registros para a ObservableCollection removemos o loading da tela.
 
+                   
                 });
             }
         }
@@ -101,7 +104,8 @@ namespace AppCustoViagemMelhorado.View
         }
 
 
-        //Receberá os novos valores digitados
+      
+        // Tratará o evento ItemSelected da ListView navegando para a página de detalhes.
         private void lst_pedagios_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             // Forma contraída de definir o BindingContext da página EditarProduto como sendo o Produto que foi selecionado na ListView (item da ListView) e em seguida já redicionando na navegação.

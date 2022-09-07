@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppCustoViagemMelhorado.View.NovoPedagio">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+
+        <StackLayout>
+            <Label Text="Localizacao:" TextColor="White"/>
+            <Entry x:Name="txt_localizacao" TextColor="White"/>
+
+            <Label Text="Valor:"  TextColor="White"/>
+            <Entry x:Name="txt_quantidade" TextColor="White"/>
+
+          
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
