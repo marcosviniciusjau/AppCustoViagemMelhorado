@@ -14,7 +14,7 @@
             <Entry x:Name="txt_localizacao" TextColor="White"/>
 
             <Label Text="Valor:"  TextColor="White"/>
-            <Entry x:Name="txt_quantidade" TextColor="White"/>
+            <Entry x:Name="txt_valor" TextColor="White"/>
 
           
 

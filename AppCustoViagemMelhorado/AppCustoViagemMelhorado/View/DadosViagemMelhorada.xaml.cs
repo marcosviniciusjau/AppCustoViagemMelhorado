@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -45,7 +45,7 @@ namespace AppCustoViagemMelhorado.View
                 {
                     Id = pedagio_anexado.Id,
                     Localizacao = txt_localizacao.Text,
-                    Valor = Convert.ToDouble(txt_valor.Text),
+                    Valor = Convert.ToDouble(txt_preco_pedagio.Text),
 
 
                 };
@@ -83,8 +83,7 @@ namespace AppCustoViagemMelhorado.View
                     txt_preco_combustivel.Text = "";
                     txt_preco_pedagio.Text = "";
 
-                    await App.Database.Clear(p);
-                    PropriedadesApp.ArrayPedagios.Clear();
+                    
                 }
             }
             catch (Exception ex)
@@ -97,7 +96,7 @@ namespace AppCustoViagemMelhorado.View
         {
             try
             {
-                double soma = lista_produtos.Sum(i => i.Valor);
+                double soma = lista_pedagios.Sum(i => i.Valor);
 
                 
                 double consumo = Convert.ToDouble(txt_consumo.Text);
