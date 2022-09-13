@@ -14,8 +14,6 @@ namespace AppCustoViagemMelhorado.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaCustoViagens : ContentPage
     {
-        // A ObservableCollection é uma classe que armazena um array de objetos do tipo de Produto.Utilizamos essa classe quando estamos apresentando um array de objetos ao usuário. Diferencial dessa classe é que toda vez que um item é add, removido ou modificado no array de objetos a interface gráfica também é atualizada. Assim as modificações feitas no array sempre estão na vista do usuário.
-
         ObservableCollection<Viagem> lista_custo_viagens = new ObservableCollection<Viagem>();
 
 
@@ -26,21 +24,17 @@ namespace AppCustoViagemMelhorado.View
             lst_custo_viagens.ItemsSource = lista_custo_viagens;
         }
 
-        //Fará a navegação para a tela de um novo produto
-
       
         protected override void OnAppearing()
         {
 
             if (lista_custo_viagens.Count == 0)
             {
-                //Inicializando a Thread que irá buscar o array de objetos no arquivo db3 via classe SQLiteDatabaseHelper encapsulada na propriedade Database da classe App.
-
+        
                 System.Threading.Tasks.Task.Run(async () =>
                 {
-                    //Retornando o array de objetos vindos do db3, foi usada uma variável tem do tipo List para que abaixo no foreach possamos percorrer a lista temporária e add os itens à ObservableCollection
-
-                    List<Viagem> temp = await App.Database.GetAllRows();
+                  
+                    List<Viagem> temp = await App.Database.GetAll();
 
                     foreach (Viagem item in temp)
                     {
@@ -51,8 +45,6 @@ namespace AppCustoViagemMelhorado.View
             }
         }
 
-
-        //Trata o evento Clicked do MenuItem da ViewCell.ContextActions perguntando ao usuário se ele realmente deseja remover o item do arquivo db3
 
 
         private async void MenuItem_Clicked(object sender, EventArgs e)
@@ -76,7 +68,14 @@ namespace AppCustoViagemMelhorado.View
             }
         }
 
-        //Receberá os novos valores digitados
-      
+     
+        private void lst_custo_viagens_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+        
+            Navigation.PushAsync(new EditarViagem
+            {
+                BindingContext = (Viagem)e.SelectedItem
+            });
+        }
     }
 }

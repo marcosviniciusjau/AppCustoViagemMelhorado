@@ -25,7 +25,7 @@ namespace AppCustoViagemMelhorado.View
                 //Preencherá a model do Produto com os dados digitados pelo usuário
                 Pedagio p = new Pedagio
                 {
-                    Id = pedagio_anexado.Id,
+                 
                     Localizacao = txt_localizacao.Text,
                     Valor = Convert.ToDouble(txt_valor.Text),
 

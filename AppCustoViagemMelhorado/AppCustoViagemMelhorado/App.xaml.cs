@@ -8,9 +8,9 @@ namespace AppCustoViagemMelhorado
 {
     public partial class App : Application
     {
-        static SQLiteDatabaseHelper database;
+        static SQLiteDatabaseHelperPedagio database;
 
-        public static SQLiteDatabaseHelper Database
+        public static SQLiteDatabaseHelperPedagio Database
         {
             get
             {
@@ -20,7 +20,7 @@ namespace AppCustoViagemMelhorado
                         Environment.GetFolderPath(
                             Environment.SpecialFolder.LocalApplicationData), "arquivo.db3");
 
-                    database = new SQLiteDatabaseHelper(path);
+                    database = new SQLiteDatabaseHelperPedagio(path);
                 }
 
                 return database;
@@ -30,7 +30,7 @@ namespace AppCustoViagemMelhorado
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new View.ListaPedagios());
+            MainPage = new NavigationPage(new View.DadosViagemMelhorada());
         }
 
         protected override void OnStart()

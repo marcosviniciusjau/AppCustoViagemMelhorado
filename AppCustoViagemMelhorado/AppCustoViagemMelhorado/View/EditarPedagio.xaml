@@ -9,11 +9,11 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Label Text="Localização:" TextColor="White"/>
-            <Entry x:Name="txt_localizacao" Text="{Binding Localizacao}" TextColor="White" />
+            <Label Text="Localização:" />
+            <Entry x:Name="txt_localizacao" Text="{Binding Localizacao}"  />
 
             <Label Text="Valor:" TextColor="White"/>
-            <Entry x:Name="txt_valor" Text="{Binding Valor}"  TextColor="White" />
+            <Entry x:Name="txt_valor" Text="{Binding Valor}"  />
 
           
         </StackLayout>

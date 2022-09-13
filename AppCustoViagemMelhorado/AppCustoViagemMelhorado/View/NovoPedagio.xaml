@@ -10,11 +10,11 @@
     <ContentPage.Content>
 
         <StackLayout>
-            <Label Text="Localizacao:" TextColor="White"/>
-            <Entry x:Name="txt_localizacao" TextColor="White"/>
+            <Label Text="Localizacao:" />
+            <Entry x:Name="txt_localizacao" />
 
-            <Label Text="Valor:"  TextColor="White"/>
-            <Entry x:Name="txt_valor" TextColor="White"/>
+            <Label Text="Valor:"  />
+            <Entry x:Name="txt_valor"/>
 
           
 

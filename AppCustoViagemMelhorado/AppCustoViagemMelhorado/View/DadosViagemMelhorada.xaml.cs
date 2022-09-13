@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Linq;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,12 +15,14 @@ namespace AppCustoViagemMelhorado.View
     {
         App PropriedadesApp;
 
+        ObservableCollection<Pedagio> lista_pedagios = new ObservableCollection<Pedagio>();
 
         public DadosViagemMelhorada()
         {
             InitializeComponent();
 
             PropriedadesApp = (App)Application.Current;
+       
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)
@@ -36,30 +37,24 @@ namespace AppCustoViagemMelhorado.View
             }
         }
 
-        private void Button_Add_Clicked(object sender, EventArgs e)
+        private async void Button_Add_Clicked(object sender, EventArgs e)
         {
             try
             {
-                //Preencherá a model do Produto com os dados digitados pelo usuário
+               
                 Pedagio p = new Pedagio
                 {
-                    Id = pedagio_anexado.Id,
                     Localizacao = txt_localizacao.Text,
                     Valor = Convert.ToDouble(txt_preco_pedagio.Text),
 
-
                 };
 
-
-                //Fará a inserção dos dados no banco de dados
                 await App.Database.Insert(p);
 
-
-                //Avisará do sucesso da operação
                 await DisplayAlert("Sucesso!", "Pedagio Cadastrado", "OK");
 
-                //Navegará para a pagina ListaProdutos
                 await Navigation.PushAsync(new ListaPedagios());
+
             }
             catch (Exception ex)
             {
@@ -94,9 +89,9 @@ namespace AppCustoViagemMelhorado.View
 
         private void Button_Calcular_Clicked(object sender, EventArgs e)
         {
-            try
+            
             {
-                double soma = lista_pedagios.Sum(i => i.Valor);
+                double valor_total_pedagios = lista_pedagios.Sum(i => i.Valor);
 
                 
                 double consumo = Convert.ToDouble(txt_consumo.Text);
@@ -117,6 +112,16 @@ namespace AppCustoViagemMelhorado.View
                 );
 
                 DisplayAlert("Custo da Viagem", mensagem, "OK");
+            }
+           
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Navigation.PushAsync(new ListaCustoViagens());
+
             }
             catch (Exception ex)
             {

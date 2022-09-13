@@ -7,14 +7,16 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Lista de Pedágios" Clicked="ToolbarItem_Clicked"  />
+        <ToolbarItem Text="Lista de Custo de Viagens" Clicked="ToolbarItem_Clicked_1" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
 
         <StackLayout>
-
-            <Frame>
+         
+                    <Frame>
                 <StackLayout>
+                    
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Origem:" Style="{StaticResource NomeCampo}" />
                         <Entry x:Name="txt_origem" />
@@ -24,6 +26,7 @@
                         <Entry x:Name="txt_destino" />
                     </StackLayout>
                 </StackLayout>
+                     
             </Frame>
 
             <Label Text="Custo do Deslocamento" 

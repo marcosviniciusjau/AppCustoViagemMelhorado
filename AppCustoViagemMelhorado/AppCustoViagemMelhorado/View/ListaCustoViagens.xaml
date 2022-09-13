@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCustoViagemMelhorado.View.ListaCustoViagens">
+             x:Class="AppCustoViagemMelhorado.View.ListaCustoViagens"
+               BackgroundColor="#2196F3">
 
     <ContentPage.Content>
         <StackLayout>
@@ -11,9 +12,9 @@
                 <ListView.Header>
                     <Grid RowDefinitions="Auto"
                               ColumnDefinitions="*, Auto, Auto" Margin="2">
-                        <Label Grid.Row="0" Grid.Column="0" Text="Id" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="Origem" />
-                        <Label Grid.Row="0" Grid.Column="2" Text="Destino" />
+                
+                        <Label Grid.Row="0" Grid.Column="0" Text="Origem" />
+                        <Label Grid.Row="0" Grid.Column="1" Text="Destino" />
                     </Grid>
                 </ListView.Header>
 
@@ -22,8 +23,8 @@
                         <ViewCell>
 
                             <ViewCell.ContextActions>
-                                <MenuItem Text="Remover" Clicked="MenuItem_Remover_Clicked" />
-                                <MenuItem Text="Editar" Clicked="MenuItem_Editar_Clicked" />
+                                <MenuItem Text="Remover" Clicked="MenuItem_Clicked" />
+                                <MenuItem Text="Editar" Clicked="MenuItem_Clicked" />
                             </ViewCell.ContextActions>
 
                             <Grid>
@@ -35,7 +36,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
+                              
                                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Origem}" />
                                 <Label Grid.Row="0" Grid.Column="2" Text="{Binding Destino}" />
                             </Grid>

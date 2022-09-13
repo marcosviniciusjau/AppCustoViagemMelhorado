@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCustoViagemMelhorado.View.ListaPedagios"  Title="Lista de Custo de Viagens"
+             x:Class="AppCustoViagemMelhorado.View.ListaPedagios"  Title="Lista de Pedágios"
              BackgroundColor="#2196F3">
 
     <ContentPage.ToolbarItems>
@@ -11,15 +11,14 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Lista de Produtos:" FontSize="Large" Padding="15" TextColor="White"/>
-
+         
             <RefreshView x:Name="ref_carregando" IsRefreshing="true">
                 <ListView x:Name="lst_pedagios" ItemSelected="lst_pedagios_ItemSelected">
                     <ListView.Header>
                         <Grid RowDefinitions="Auto"
                               ColumnDefinitions="*, Auto, Auto" Margin="2">
-                            <Label Grid.Row="0" Grid.Column="0" Text="Id" TextColor="White" />
-                            <Label Grid.Row="0" Grid.Column="1" Text="Localizacao" TextColor="White" />
+                
+                            <Label Grid.Row="0" Grid.Column="0" Text="Localizacao" TextColor="White" />
                             <Label Grid.Row="0" Grid.Column="2" Text="Valor" TextColor="White"/>
 
                         </Grid>
@@ -34,8 +33,7 @@
                                 <Grid RowDefinitions="Auto" 
                                       ColumnDefinitions="*, Auto, Auto" Margin="2" >
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id}" />
-                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Localizacao}" />
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Localizacao}" />
                                     <Label Grid.Row="0" Grid.Column="2" Text="{Binding Valor, StringFormat='{}{0:c}' }" />
 
                                 </Grid>
