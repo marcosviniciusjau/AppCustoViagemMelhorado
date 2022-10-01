@@ -33,16 +33,16 @@ namespace AppCustoViagemMelhorado.Helper
 
 
     
-        public Task<int> Insert(Viagem p)
+        public Task<int> Insert(Viagem v)
         {
-            return _conn.InsertAsync(p);
+            return _conn.InsertAsync(v);
         }
 
 
-        public Task<List<Viagem>> Update(Viagem p)
+        public Task<List<Viagem>> Update(Viagem v)
         {
             string sql = "UPDATE Viagem SET Origem=?, Destino=?  Distancia=?, Consumo=? Preco=? WHERE Id= ? ";
-            return _conn.QueryAsync<Viagem>(sql, p.Origem, p.Destino, p.Distancia, p.Consumo, p.Preco, p.Id);
+            return _conn.QueryAsync<Viagem>(sql, v.Origem, v.Destino, v.Distancia, v.Consumo, v.Preco, v.Id);
         }
 
    

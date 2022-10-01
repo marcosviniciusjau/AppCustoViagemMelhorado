@@ -1,25 +1,29 @@
-﻿using AppCustoViagemMelhorado.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+
+using AppCustoViagemMelhorado.Model;
+
 
 namespace AppCustoViagemMelhorado.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListaCustoViagens : ContentPage
     {
+ 
+
         ObservableCollection<Viagem> lista_custo_viagens = new ObservableCollection<Viagem>();
 
 
         public ListaCustoViagens()
         {
             InitializeComponent();
+
 
             lst_custo_viagens.ItemsSource = lista_custo_viagens;
         }

@@ -9,6 +9,7 @@ namespace AppCustoViagemMelhorado
     public partial class App : Application
     {
         static SQLiteDatabaseHelperPedagio database;
+        static SQLiteDatabaseHelperViagem database1;
 
         public static SQLiteDatabaseHelperPedagio Database
         {
@@ -24,6 +25,23 @@ namespace AppCustoViagemMelhorado
                 }
 
                 return database;
+            }
+        }
+
+        public static SQLiteDatabaseHelperViagem Database1
+        {
+            get
+            {
+                if (database1 == null)
+                {
+                    string path = Path.Combine(
+                        Environment.GetFolderPath(
+                            Environment.SpecialFolder.LocalApplicationData), "arquivo1.db3");
+
+                    database1 = new SQLiteDatabaseHelperViagem(path);
+                }
+
+                return database1;
             }
         }
         public App()
