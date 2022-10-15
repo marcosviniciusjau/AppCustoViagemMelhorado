@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCustoViagemMelhorado.View.EditarPedagio">
+             x:Class="AppCustoViagemMelhorado.View.Novo"
+             Title="Novo Pedágio"
+             BackgroundImage="fundo2.jpeg">
+
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Salvar" Clicked="ToolbarItem_Clicked" />
+        <ToolbarItem  Text = " Salvar "  Clicked="ToolbarItem_Clicked" />
     </ContentPage.ToolbarItems>
+
 
     <ContentPage.Content>
         <StackLayout>
-
             <Label Text="Localização:" />
-            <Entry x:Name="txt_localizacao" Text="{Binding Localizacao}"  />
-
-            <Label Text="Valor:" TextColor="White"/>
-            <Entry x:Name="txt_valor" Text="{Binding Valor}"  />
-
-          
+            <Entry x:Name="txt_localizacao" />
+            <Label Text="Preço:" />
+            <Entry x:Name="txt_preco" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
