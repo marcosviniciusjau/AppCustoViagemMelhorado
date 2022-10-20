@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppCustoViagemMelhorado.View.Lista">
+             x:Class="AppCustoViagemMelhorado.View.Lista"
+              BackgroundColor="Purple">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add Pedágio" Clicked="ToolbarItem_Clicked" />
@@ -25,7 +26,7 @@
                             </ViewCell.ContextActions>
                             <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
                                 <Label Grid.Row="0" Grid.Column="0" Text="{Binding Localizacao}" />
-                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Preco, StringFormat='{}{0:c}'}" />
+                                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Valor, StringFormat='{}{0:c}'}" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

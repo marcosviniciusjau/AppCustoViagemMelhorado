@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppCustoViagemMelhorado.View.Novo"
              Title="Novo Pedágio"
-             BackgroundImage="fundo2.jpeg">
+              BackgroundColor="Purple">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem  Text = " Salvar "  Clicked="ToolbarItem_Clicked" />
